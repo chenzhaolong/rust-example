@@ -22,6 +22,8 @@ fn main() {
     test3(ip1);
     let ip2 = IP::V1{a: 12, b: 12.32};
     test3(ip2);
+    test4();
+    test6();
 }
 
 // 元组, 结构体, 元组 + 结构体
@@ -63,4 +65,46 @@ fn test3(ip: IP) {
         IP::V2 => println!("V2:{}", 123),
        
     }
+}
+
+// option
+fn test4() {
+    let a: Option<i32> = Option::Some(32);
+    let b = Some(245);
+    // let c: Option<i32> = None;
+    println!("test4-a {}", a.unwrap());
+    println!("test4-b {}", b.unwrap()); 
+    // println!("test4-c {:?}", c.unwrap());
+}
+
+// test option
+fn test5 (a: Option<i32>) -> Option<i32> {
+    let a1 = a.unwrap();
+    if a1 == 0 {
+        None
+    } else {
+        let res = a1 + 12;
+        Some(res)
+    }
+}
+
+fn test6() {
+    let a = Some(10);
+    let a1 = test5(a);
+    match a1 {
+        Option::Some(val) => println!("{}", val),
+        Option::None => println!("{}", "none")
+    }
+    let a2 = AA::Some(123);
+    match a2 {
+        AA::A1 => println!("A1"),
+        AA::None => println!("none"),
+        AA::Some(val) => println!("val")
+    }
+}
+
+enum AA {
+    A1,
+    None,
+    Some(i32),
 }
