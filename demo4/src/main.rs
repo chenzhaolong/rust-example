@@ -19,7 +19,25 @@ fn main() {
         }
     }
     let s = 23;
-    println!("i32: {}", s.double())
+    println!("i32: {}", s.double());
+
+    struct Nums {
+        a1: i32
+    }
+
+    impl Sharp for Nums {
+        fn run(&self) -> i32 {
+            return self.a1;
+        }
+    }
+
+    let gigi = Nums {a1: 65};
+
+    sat(gigi);
+
+    let gigi1 = Nums {a1: 656};
+
+    sun(gigi1);
 }
 
 trait A {
@@ -126,4 +144,16 @@ fn food1 () {
     }
     let inst1 = Hello {a: 10, b: 13.0};
     print!("A {}", inst1.get_food());
+}
+
+trait Sharp {
+    fn run (self: &Self) -> i32;
+}
+
+fn sat<T: Sharp>(x: T) {
+    println!("demo: {}", x.run());
+}
+
+fn sun<T>(x: T) where T: Sharp {
+    println!("demo: {}", x.run());
 }
