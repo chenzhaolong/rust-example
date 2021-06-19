@@ -8,7 +8,7 @@ fn main() {
     println!("{}", C::fun(12.0));
     // println!("{}", c.hi(c.c1 as f32));
 
-    food1();
+    food();
 }
 
 trait A {
@@ -53,6 +53,8 @@ trait Food {
     fn get_food (self: &Self) -> i32;
 
     fn add_food (self: &Self) -> bool;
+
+    fn mul_food (this: &Self) -> i32;
 }
 
 fn food () {
@@ -64,6 +66,9 @@ fn food () {
         fn add_food (&self) -> bool {
             return self.1 > 10;
         }
+        fn mul_food (this: &Self) -> i32 {
+            return this.1;
+        }
     }
     // impl Nums {
     //     fn mulFood (self, a: i32) -> bool {
@@ -71,8 +76,9 @@ fn food () {
     //     }
     // }
     let inst = Nums (12, 9);
-    print!("getFood {}", inst.get_food());
-    print!("addFood {}", inst.add_food());
+    // print!("getFood {}", inst.get_food());
+    // print!("addFood {}", inst.add_food());
+    print!("addFood {}", Nums::mul_food(&inst));
     // print!("addFood {}", inst.mulFood(100));
 
     struct Hello {
@@ -86,6 +92,9 @@ fn food () {
         }
         fn add_food(&self) -> bool {
             return self.b > 10.0;
+        }
+        fn mul_food (this: &Self) -> i32 {
+            return this.a;
         }
     }
     let inst1 = Hello {a: 10, b: 13.0};
