@@ -6,7 +6,9 @@ fn main() {
     let c = C {c1: -1};
     println!("{}", c.sweet());
     println!("{}", C::fun(12.0));
-    println!("{}", c.hi(c.c1 as f32));
+    // println!("{}", c.hi(c.c1 as f32));
+
+    food1();
 }
 
 trait A {
@@ -45,4 +47,63 @@ impl C {
     fn fun (a: f32) -> bool {
         return a > 10.0;
     }
+}
+
+trait Food {
+    fn get_food (self: &Self) -> i32;
+
+    fn add_food (self: &Self) -> bool;
+}
+
+fn food () {
+    struct Nums (i32, i32);
+    impl Food for Nums {
+        fn get_food (&self) -> i32 {
+            return self.0;
+        }
+        fn add_food (&self) -> bool {
+            return self.1 > 10;
+        }
+    }
+    // impl Nums {
+    //     fn mulFood (self, a: i32) -> bool {
+    //         return self.1 + a > 20;
+    //     }
+    // }
+    let inst = Nums (12, 9);
+    print!("getFood {}", inst.get_food());
+    print!("addFood {}", inst.add_food());
+    // print!("addFood {}", inst.mulFood(100));
+
+    struct Hello {
+        a: i32,
+        b: f32,
+    }
+    impl Food for Hello {
+        fn get_food(&self) -> i32 {
+            let b = self.b as i32;
+            return self.a + b;
+        }
+        fn add_food(&self) -> bool {
+            return self.b > 10.0;
+        }
+    }
+    let inst1 = Hello {a: 10, b: 13.0};
+    print!("A {}", inst1.get_food());
+    print!("B {}", inst1.add_food());
+}
+
+fn food1 () {    
+    struct Hello {
+        a: i32,
+        b: f32,
+    }
+    impl Hello {
+        fn get_food(&self) -> i32 {
+            let b = self.b as i32;
+            return self.a + b;
+        }
+    }
+    let inst1 = Hello {a: 10, b: 13.0};
+    print!("A {}", inst1.get_food());
 }
