@@ -9,6 +9,17 @@ fn main() {
     // println!("{}", c.hi(c.c1 as f32));
 
     food();
+
+    trait Double {
+        fn double(self: &Self) -> i32;
+    }
+    impl Double for i32 {
+        fn double(&self) -> i32 {
+            return self * 2;
+        }
+    }
+    let s = 23;
+    println!("i32: {}", s.double())
 }
 
 trait A {
