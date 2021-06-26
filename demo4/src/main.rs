@@ -1,4 +1,15 @@
+use std::fmt::{Display, Formatter, Error, Debug};
+use std::default::Default;
 fn main() {
+    struct T {
+        a1: i32
+    }
+    impl Default for T {
+        fn default() -> T {
+            return {};
+        }
+    }
+
     let a = B {b1: 10};
     println!("{}", a.go());
     println!("{}", B::doing(10));
@@ -38,6 +49,8 @@ fn main() {
     let gigi1 = Nums {a1: 656};
 
     sun(gigi1);
+
+    sta1();
 }
 
 trait A {
@@ -156,4 +169,30 @@ fn sat<T: Sharp>(x: T) {
 
 fn sun<T>(x: T) where T: Sharp {
     println!("demo: {}", x.run());
+}
+
+fn sta1() {
+    struct T {
+        a1: i32,
+        a2: i32,
+    }
+    struct T1 {
+        a1: i32,
+        a2: i32,
+    }
+    impl Display for T {
+        fn fmt(&self, f: &mut Formatter) -> Result<(), Error> {
+            write!(f, "{{ field1:{}, field21: {} }}", self.a1, self.a2)
+        }
+    }
+
+    impl Debug for T1 {
+        fn fmt(&self, f: &mut Formatter) -> Result<(), Error> {
+            write!(f, "{{ field1:{}, field21: {} }}", self.a1, self.a2)
+        }
+    }
+    let t = T {a1: 12, a2: 13};
+    let t1 = T1 {a1: 12, a2: 13};
+    println!("{}", t);
+    println!("{:?}", t1);
 }
