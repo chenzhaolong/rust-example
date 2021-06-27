@@ -1,14 +1,14 @@
 use std::fmt::{Display, Formatter, Error, Debug};
-use std::default::Default;
+// use std::default::Default;
 fn main() {
     struct T {
         a1: i32
     }
-    impl Default for T {
-        fn default() -> T {
-            return {};
-        }
-    }
+    // impl Default for T {
+    //     fn default() -> T {
+    //         return {};
+    //     }
+    // }
 
     let a = B {b1: 10};
     println!("{}", a.go());
