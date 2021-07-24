@@ -1,5 +1,7 @@
 fn main() {
-    knowArray();
+    // knowArray();
+    // limitArr();
+    getStr();
 }
 
 fn knowArray () {
@@ -29,4 +31,34 @@ fn Slice(a: &mut [i32]) {
 
 fn Fat(a: &[i32]) {
     println!("Fat{}", a[1]);
+}
+
+fn limitArr() {
+    // [0, 10)
+    let a = 1..10;
+    for i in a {
+        println!("i:{}", i);
+    }
+    // [1, 10]
+    let b = 1..=10;
+    for j in b {
+        println!("j:{}", j);
+    }
+    // a的子集3-7
+    let full: [i32; 6] = [1,2,3,4,5,6];
+    let c = &full[..6];
+    for z in c {
+        println!("z:{}", z);
+    }
+}
+
+fn getStr() {
+    let a: &str = "aaa";
+    println!("{}", a);
+    println!("len:{}", a.len());
+    println!("len:{}", &a[1..]);
+
+    let mut s = String::from("hello");
+    s.push_str(" nihao");
+    println!("s: {}", s);
 }
