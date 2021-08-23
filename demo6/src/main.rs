@@ -4,6 +4,7 @@ fn main() {
     let obj = T3 { a: 1, b: 2, c: 3, d: 4, e: 5 };
     let a = T4 (120, 11, 10);
     f3(obj, a);
+    f4()
 }
 
 struct T1 (i32, f32);
@@ -68,5 +69,22 @@ fn f3 (obj: T3, obj1: T4) {
         i @ 11 ..= 20 => println!("{}", i),
         i if i > 20 => println!("{}", "192"),
         _ => println!("end"),
+    }
+}
+
+fn f4() {
+    let a = &5_i32;
+    println!("f4 a: {}", a);
+
+    let ref a1 = 5_i32;
+    println!("f4 a1: {}", a1);
+
+    let ref a2 = &9_i32;
+    println!("f4 a2: {}", a2);
+
+    match a2 {
+        i if i > &&10 => println!("大于10"),
+        i1 @ 1 ..= 5 => println!("小于5{}", i1),
+        ref i2 => println!("大于5小于10 {}", i2),
     }
 }
