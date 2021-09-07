@@ -85,7 +85,7 @@ fn f4() {
     match a2 {
         i if i > &&10 => println!("大于10"),
         i1 @ 1 ..= 5 => println!("小于5{}", i1),
-        ref i2 => println!("大于5小于10 {}", i2),
+        ref i2 => println!("大于5小于10 {}", i2)
     }
 
     println!("{}, {}", file!(), line!());
