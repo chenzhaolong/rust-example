@@ -87,4 +87,8 @@ fn f4() {
         i1 @ 1 ..= 5 => println!("小于5{}", i1),
         ref i2 => println!("大于5小于10 {}", i2),
     }
+
+    println!("{}, {}", file!(), line!());
+    let arr = vec![1,2,3,4,5];
+    println!("arr: {}", arr[0]);
 }
